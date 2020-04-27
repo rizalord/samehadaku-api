@@ -15,5 +15,7 @@ router.get("/search/:title", AnimeController.search);
 router.get("/search/:title/:page", AnimeController.searchByPage);
 router.get("/season/", AnimeController.season);
 router.get("/date-release/", AnimeController.date);
+router.get("/list-anime/", AnimeController.listWithoutPage);
+router.get("/list-anime/:page", AnimeController.listWithPage);
 
 module.exports = router;

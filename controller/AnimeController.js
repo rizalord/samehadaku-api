@@ -404,27 +404,132 @@ class AnimeController {
           return $(this).text();
         })
         .get().length;
-      
-        var day = $(".schedule .tab-dates")
-          .map(function () {
-            return $(this).text().trim();
-          })
-          .get();
-        data.results = $('.schedule .result-schedule').map(function(index , element){
+
+      var day = $(".schedule .tab-dates")
+        .map(function () {
+          return $(this).text().trim();
+        })
+        .get();
+      data.results = $(".schedule .result-schedule")
+        .map(function (index, element) {
           return {
             day: day[index],
-            list: $(this).find('.animepost').map(function(){
-              return {
-                title: $(this).find(".animposx a .data .title").text().trim(),
-                image: $(this).find(".animposx a .content-thumb img").attr('src'),
-                score: $(this).find(".animposx a .content-thumb .score").text().trim(),
-                genres: $(this).find(".animposx a .data .type").text().trim().split(', '),
-                link: $(this).find(".animposx a").attr('href'),
-                linkId: $(this).find(".animposx a").attr('href').replace('https://samehadaku.vip/anime/' , '').replace('/' , '')
-              };
-            }).get()
+            list: $(this)
+              .find(".animepost")
+              .map(function () {
+                return {
+                  title: $(this).find(".animposx a .data .title").text().trim(),
+                  image: $(this)
+                    .find(".animposx a .content-thumb img")
+                    .attr("src"),
+                  score: $(this)
+                    .find(".animposx a .content-thumb .score")
+                    .text()
+                    .trim(),
+                  genres: $(this)
+                    .find(".animposx a .data .type")
+                    .text()
+                    .trim()
+                    .split(", "),
+                  link: $(this).find(".animposx a").attr("href"),
+                  linkId: $(this)
+                    .find(".animposx a")
+                    .attr("href")
+                    .replace("https://samehadaku.vip/anime/", "")
+                    .replace("/", ""),
+                };
+              })
+              .get(),
           };
-        }).get();
+        })
+        .get();
+
+      res.send(data);
+    });
+  }
+
+  listWithoutPage(req, res) {
+    const page = `https://samehadaku.vip/daftar-anime/`;
+
+    scraperjs.StaticScraper.create(page).scrape(function ($) {
+      var data = {};
+
+      data.title = "Daftar Anime";
+
+      data.results = $(".site-main .animpost")
+        .map(function () {
+          return {
+            title: $(this).find(".animepost .stooltip .title h4").text(),
+            score: $(this).find(".animepost .stooltip .skor").text().trim(),
+            view: $(this)
+              .find(".animepost .stooltip .metadata span:last-of-type")
+              .text()
+              .replace(" Dilihat", ""),
+            image: $(this).find(".animepost .animposx img").attr("src"),
+            sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
+            genres: $(this)
+              .find(".animepost .stooltip .genres .mta a")
+              .map(function () {
+                return $(this).text();
+              })
+              .get(),
+            status: $(this)
+              .find(".animepost .animposx a .data .type")
+              .text()
+              .trim(),
+            link: $(this).find(".animepost .animposx a").attr("href"),
+            linkId: $(this)
+              .find(".animepost .animposx a")
+              .attr("href")
+              .replace("https://samehadaku.vip/anime/", "")
+              .replace("/", ""),
+          };
+        })
+        .get();
+
+        res.send(data);
+    });
+  }
+
+  listWithPage(req , res){
+    const {page} = req.params;
+    const inPage = `https://samehadaku.vip/daftar-anime/page/${page}/`;
+
+    scraperjs.StaticScraper.create(inPage).scrape(function($){
+      var data = {};
+
+      data.title = "Daftar Anime";
+
+      data.results = $(".site-main .animpost")
+        .map(function () {
+          return {
+            title: $(this).find(".animepost .stooltip .title h4").text(),
+            score: $(this).find(".animepost .stooltip .skor").text().trim(),
+            view: $(this)
+              .find(".animepost .stooltip .metadata span:last-of-type")
+              .text()
+              .replace(" Dilihat", ""),
+            image: $(this).find(".animepost .animposx img").attr("src"),
+            sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
+            genres: $(this)
+              .find(".animepost .stooltip .genres .mta a")
+              .map(function () {
+                return $(this).text();
+              })
+              .get(),
+            status: $(this)
+              .find(".animepost .animposx a .data .type")
+              .text()
+              .trim(),
+            link: $(this).find(".animepost .animposx a").attr("href"),
+            linkId: $(this)
+              .find(".animepost .animposx a")
+              .attr("href")
+              .replace("https://samehadaku.vip/anime/", "")
+              .replace("/", ""),
+          };
+        })
+        .get();
 
       res.send(data);
     });
