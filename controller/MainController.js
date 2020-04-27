@@ -31,7 +31,7 @@ class MainController {
               rating: $(this).find("a .content-thumb .score").text().trim(),
             };
           })
-          .get();
+          .get().slice(0 , 10);
 
         obj.latest = $(".post-show ul li")
           .map(function () {
