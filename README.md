@@ -1,6 +1,6 @@
 # Samehadaku-Rest-Api
 
-SRA is a rest-api which is scraping to the [samehadaku](samehadaku.vip) website and made up using Express.
+SRA is a rest-api which is scraping to the [samehadaku](https://samehadaku.vip) website and made up using Express.
 
 ## Demo
 [Click to show preview](https://samehadaku-rest-api.herokuapp.com/)
