@@ -2,6 +2,10 @@
 
 SRA is a rest-api which is scraping to the [samehadaku](samehadaku.vip) website and made up using Express.
 
+## Demo
+
+[preview](https://samehadaku-rest-api.herokuapp.com/)
+
 ## Installation
 
 Use the package manager [npm](https://npmjs.com/) to install SRA's package.
@@ -31,10 +35,10 @@ Then open [localhost://3000](localhost://3000)
 | /blog/read/{id}   | id     |  String | read blog |
 | /anime/{id}   | id     |  String | detail anime |
 | /anime/eps/{link}   | link     |  String | detail anime's eps |
-| /search/{title}/{page}   | title, page     |  String, number | search anime |
+| /search/{title}/{page}   | title|page     |  String|number | search anime |
 | /season | -     |  - |list anime of this season|
 | /date-release | -     |  - | anime release date |
-| /list-anime/{page} | page     |  number | list all anime |
+| /list-anime/{page} | page     |  number | list of all anime |
 
 
 
