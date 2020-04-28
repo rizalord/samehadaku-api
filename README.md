@@ -3,7 +3,7 @@
 SRA is a rest-api which is scraping to the [samehadaku](samehadaku.vip) website and made up using Express.
 
 ## Demo
-[preview](https://samehadaku-rest-api.herokuapp.com/)
+[Click to show preview](https://samehadaku-rest-api.herokuapp.com/)
 
 ## Installation
 
