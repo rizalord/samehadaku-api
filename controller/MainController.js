@@ -118,7 +118,10 @@ class MainController {
           return $(this).text() != "";
         })
         .map(function () {
-          return $(this).text();
+          return {
+            text: $(this).text(),
+            img: $(this).find("img").attr("src"),
+          };
         })
         .get();
       data.tags = $(".post_taxs a")
