@@ -487,19 +487,61 @@ class AnimeController {
         })
         .get();
 
-        res.send(data);
+      res.send(data);
     });
   }
 
-  listWithPage(req , res){
-    const {page} = req.params;
+  listWithPage(req, res) {
+    const { page } = req.params;
     const inPage = `https://samehadaku.vip/daftar-anime/page/${page}/`;
 
-    scraperjs.StaticScraper.create(inPage).scrape(function($){
+    scraperjs.StaticScraper.create(inPage).scrape(function ($) {
       var data = {};
 
       data.title = "Daftar Anime";
 
+      data.results = $(".site-main .animpost")
+        .map(function () {
+          return {
+            title: $(this).find(".animepost .stooltip .title h4").text(),
+            score: $(this).find(".animepost .stooltip .skor").text().trim(),
+            view: $(this)
+              .find(".animepost .stooltip .metadata span:last-of-type")
+              .text()
+              .replace(" Dilihat", ""),
+            image: $(this).find(".animepost .animposx img").attr("src"),
+            sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
+            genres: $(this)
+              .find(".animepost .stooltip .genres .mta a")
+              .map(function () {
+                return $(this).text();
+              })
+              .get(),
+            status: $(this)
+              .find(".animepost .animposx a .data .type")
+              .text()
+              .trim(),
+            link: $(this).find(".animepost .animposx a").attr("href"),
+            linkId: $(this)
+              .find(".animepost .animposx a")
+              .attr("href")
+              .replace("https://samehadaku.vip/anime/", "")
+              .replace("/", ""),
+          };
+        })
+        .get();
+
+      res.send(data);
+    });
+  }
+
+  searchByGenre(req, res) {
+    const { genre } = req.params;
+    const page = `https://samehadaku.vip/genre/${genre}`;
+
+    scraperjs.StaticScraper.create(page).scrape(function ($) {
+      let data = {};
+      data.genre  = $('h1.page-title').map(function(){return $(this).text().replace('Genre: ' , '')})[0]
       data.results = $(".site-main .animpost")
         .map(function () {
           return {

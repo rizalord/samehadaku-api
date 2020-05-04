@@ -31,7 +31,8 @@ class MainController {
               rating: $(this).find("a .content-thumb .score").text().trim(),
             };
           })
-          .get().slice(0 , 10);
+          .get()
+          .slice(0, 10);
 
         obj.latest = $(".post-show ul li")
           .map(function () {
@@ -109,7 +110,11 @@ class MainController {
           return $(this).text();
         })
         .get()[0];
-      data.image_cover = $(".thumb-blog").map(function(){ return $(this).find('img').attr('src') }).get()[0];
+      data.image_cover = $(".thumb-blog")
+        .map(function () {
+          return $(this).find("img").attr("src");
+        })
+        .get()[0];
       data.content = $(".entry-content.content-post p")
         .filter(function (e, i) {
           if ($(this).text() == "") {
@@ -137,6 +142,112 @@ class MainController {
       res.send(data);
     });
   };
+
+  tag(req, res) {
+    const { tag } = req.params;
+    const page = `https://samehadaku.vip/tag/${tag}`;
+
+    scraperjs.StaticScraper.create(page).scrape(function ($) {
+      let data = {};
+      data.tag = $("h1.page-title").map(function () {
+        return $(this).text().replace("Tag: ", "");
+      })[0];
+      data.results = $(".site-main .animpost")
+        .map(function () {
+          return {
+            title: $(this).find(".animepost .stooltip .title h4").text(),
+            // score: $(this).find(".animepost .stooltip .skor").text().trim(),
+            view: $(this)
+              .find(".animepost .stooltip .metadata span:last-of-type")
+              .text()
+              .replace(" Dilihat", ""),
+            image: $(this).find(".animepost .animposx img").attr("src"),
+            sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
+            // genres: $(this)
+            //   .find(".animepost .stooltip .genres .mta a")
+            //   .map(function () {
+            //     return $(this).text();
+            //   })
+            //   .get(),
+            status: $(this)
+              .find(".animepost .animposx a .data .type")
+              .text()
+              .trim(),
+            link: $(this).find(".animepost .animposx a").attr("href"),
+            linkId: $(this)
+              .find(".animepost .animposx a")
+              .attr("href")
+              .replace("https://samehadaku.vip/anime/", "")
+              .replace("/", ""),
+          };
+        })
+        .get();
+
+      res.send(data);
+    });
+  }
+
+  blogcategory(req, res) {
+    const { category } = req.params;
+    const page = `https://samehadaku.vip/blog-category/${category}`;
+
+    scraperjs.StaticScraper.create(page).scrape(function ($) {
+      let data = {};
+      data.category = $("h1.page-title").map(function () {
+        return $(this).text().replace("Blog Category: ", "");
+      })[0];
+      data.results = $(".box-blog")
+        .map(function () {
+          return {
+            title: $(this).find("h2 a").text(),
+            sub: $(this).find(".exp p").text(),
+            date: $(this).find(".auth i").text(),
+            link: $(this).find(".img a").attr("href"),
+            linkId: $(this)
+              .find(".img a")
+              .attr("href")
+              .replace("https://samehadaku.vip/blog/", "")
+              .replace("/", "")
+              .trim(),
+            image: $(this).find(".img a img").attr("src"),
+          };
+        })
+        .get();
+
+      res.send(data);
+    });
+  }
+
+  blogcategoryByPage(req, res) {
+    const { category, page } = req.params;
+    const pager = `https://samehadaku.vip/blog-category/${category}/page/${page}`;
+
+    scraperjs.StaticScraper.create(pager).scrape(function ($) {
+      let data = {};
+      data.category = $("h1.page-title").map(function () {
+        return $(this).text().replace("Blog Category: ", "");
+      })[0];
+      data.results = $(".box-blog")
+        .map(function () {
+          return {
+            title: $(this).find("h2 a").text(),
+            sub: $(this).find(".exp p").text(),
+            date: $(this).find(".auth i").text(),
+            link: $(this).find(".img a").attr("href"),
+            linkId: $(this)
+              .find(".img a")
+              .attr("href")
+              .replace("https://samehadaku.vip/blog/", "")
+              .replace("/", "")
+              .trim(),
+            image: $(this).find(".img a img").attr("src"),
+          };
+        })
+        .get();
+
+      res.send(data);
+    });
+  }
 }
 
 module.exports = new MainController();
