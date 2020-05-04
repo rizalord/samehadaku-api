@@ -34,7 +34,7 @@ Then open [localhost://3000](localhost://3000)
 | /blog/read/{id}   | id     |  String | read blog |
 | /anime/{id}   | id     |  String | detail anime |
 | /anime/eps/{link}   | link     |  String | detail anime's eps |
-| /search/{title}/{page}   | titl,|page     |  String,number | search anime |
+| /search/{title}/{page}   | title,page     |  String,number | search anime |
 | /season | -     |  - |list anime of this season|
 | /date-release | -     |  - | anime release date |
 | /list-anime/{page} | page     |  number | list of all anime |
