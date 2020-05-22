@@ -14,7 +14,7 @@ class MainController {
         ? ""
         : `page/${req.params.page.toString()}/`;
     scraperjs.StaticScraper.create(`https://samehadaku.vip/${page}`).scrape(
-      function ($) {
+      async function ($) {
         var obj = {};
         obj.season = $(".animposx")
           .map(function () {
@@ -33,6 +33,14 @@ class MainController {
           })
           .get()
           .slice(0, 10);
+
+        await Promise.all(obj.season.map(async (e, i) => {
+          await scraperjs.StaticScraper.create(e.link).scrape(function($){
+            e.sinopsis = $('.desc .entry-content-single p').map(function(){ return $(this).text() }).get()[0];
+            return e;
+          });
+          return true;
+        }))
 
         obj.latest = $(".post-show ul li")
           .map(function () {
