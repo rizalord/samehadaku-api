@@ -37,6 +37,7 @@ class MainController {
         await Promise.all(obj.season.map(async (e, i) => {
           await scraperjs.StaticScraper.create(e.link).scrape(function($){
             e.sinopsis = $('.desc .entry-content-single p').map(function(){ return $(this).text() }).get()[0];
+            e.genre = $('.genre-info a').map(function() { return $(this).text() }).get();
             return e;
           });
           return true;
