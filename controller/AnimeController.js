@@ -420,7 +420,17 @@ class AnimeController {
         })
         .get();
 
-        // data.recommend = $('')
+      data.recommend = $(".animposx")
+        .map(function () {
+          let data = {
+            link: $(this).find("a").attr("href"),
+            image: $(this).find("a img").attr("src"),
+            title: $(this).find("a img").attr("title"),
+          };
+
+          return data;
+        })
+        .get();
 
       res.send(data);
     });
