@@ -47,66 +47,223 @@ class AnimeController {
         .get()[0];
       // Detail
       data.detail = {};
-      data.detail.japanese = $(".spe span:nth-of-type(1)")
+      var tmp;
+      tmp = $(".spe span:nth-of-type(1)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.english = $(".spe span:nth-of-type(3)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(3)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(" ");
+          return [first, text];
         })
-        .get()[0];
-      data.detail.type = $(".spe span:nth-of-type(5)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(5)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.duration = $(".spe span:nth-of-type(7)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(7)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(" ");
+          return [first, text];
         })
-        .get()[0];
-      data.detail.season = $(".spe span:nth-of-type(9)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(9)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.producers = $(".spe span:nth-of-type(11)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(11)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.synonims = $(".spe span:nth-of-type(2)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(2)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.status = $(".spe span:nth-of-type(4)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(4)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.source = $(".spe span:nth-of-type(6)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(6)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.totalEpisode = $(".spe span:nth-of-type(8)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(8)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.studio = $(".spe span:nth-of-type(10)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(10)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
-      data.detail.release = $(".spe span:nth-of-type(12)")
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
+      tmp = $(".spe span:nth-of-type(12)")
         .map(function () {
-          return $(this).text();
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+          
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
+          
+          text = text.join(' ');
+          return [first , text];
         })
-        .get()[0];
+        .get();
+      data.detail[tmp[0]] = tmp[1];
+
       // Youtube Trailer
       data.youtube = $("iframe")
         .map(function () {
