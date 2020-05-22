@@ -46,223 +46,223 @@ class AnimeController {
         })
         .get()[0];
       // Detail
-      // data.detail = {};
-      // var tmp;
-      // tmp = $(".spe span:nth-of-type(1)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      data.detail = {};
+      var tmp;
+      tmp = $(".spe span:nth-of-type(1)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(3)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(3)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(" ");
-      //     return [first, text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(" ");
+          return [first, text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(5)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(5)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(7)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(7)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(" ");
-      //     return [first, text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(" ");
+          return [first, text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(9)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(9)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(11)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(11)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(2)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(2)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(4)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(4)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(6)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(6)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(8)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(8)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(10)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(10)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
-      // tmp = $(".spe span:nth-of-type(12)")
-      //   .map(function () {
-      //     var text = $(this).text().split(" ");
-      //     var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
+      tmp = $(".spe span:nth-of-type(12)")
+        .map(function () {
+          var text = $(this).text().split(" ");
+          var first = text[0] == 'Total' ? (text[0] + text[1]).replace(' ' , '') : text[0];
 
-      //     if(text[0] == 'Total') {
-      //       text.shift();
-      //       text.shift();
-      //     }else{
-      //       text.shift();
-      //     }
+          if(text[0] == 'Total') {
+            text.shift();
+            text.shift();
+          }else{
+            text.shift();
+          }
 
-      //     text = text.join(' ');
-      //     return [first , text];
-      //   })
-      //   .get();
-      // data.detail[tmp[0]] = tmp[1];
+          text = text.join(' ');
+          return [first , text];
+        })
+        .get();
+      data.detail[tmp[0]] = tmp[1];
 
       // Youtube Trailer
       data.youtube = $("iframe")
