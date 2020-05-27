@@ -10,9 +10,13 @@ SRA is a rest-api which is scraping to the [samehadaku](https://samehadaku.vip) 
 Use the package manager [npm](https://npmjs.com/) to install SRA's package.
 
 * Clone the Repo
-* Install all packages using
+* Install all packages using command
 ```bash
 npm install
+```
+* Install nodemon package globaly in your computer
+```bash
+npm install -g nodemon
 ```
 
 ## Usage
@@ -30,7 +34,7 @@ Then open [localhost://3000](localhost://3000)
 | /      | - | - | homepage  
 | /page/{page}    | page     |  number | homepage-pagination |
 | /blog   | -     |  - | blog |
-| /blog/page/{page}   | page     |  number | blog-pagination |
+| /blog/{page}   | page     |  number | blog-pagination |
 | /blog/read/{id}   | id     |  String | read blog |
 | /anime/{id}   | id     |  String | detail anime |
 | /anime/eps/{link}   | link     |  String | detail anime's eps |
