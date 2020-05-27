@@ -27,7 +27,10 @@ class MainController {
                 .attr("href")
                 .replace("https://samehadaku.vip/anime/", "")
                 .replace("/", ""),
-              image: $(this).find("a .content-thumb img").attr("src"),
+              image: $(this)
+                .find("a .content-thumb img")
+                .attr("src")
+                .replace("quality=80", "quality=100"),
               rating: $(this).find("a .content-thumb .score").text().trim(),
             };
           })
@@ -64,7 +67,10 @@ class MainController {
                 .text()
                 .replace(" Released on: ", ""),
               link: $(this).find(".dtla .entry-title a").attr("href"),
-              image: $(this).find(".thumb a img").attr("src").split("?")[0],
+              image: $(this)
+                .find(".thumb a img")
+                .attr("src")
+                .replace("quality=80", "quality=100"),
             };
           })
           .get();
