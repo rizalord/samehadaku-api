@@ -34,14 +34,24 @@ class MainController {
           .get()
           .slice(0, 10);
 
-        await Promise.all(obj.season.map(async (e, i) => {
-          await scraperjs.StaticScraper.create(e.link).scrape(function($){
-            e.sinopsis = $('.desc .entry-content-single p').map(function(){ return $(this).text() }).get()[0];
-            e.genre = $('.genre-info a').map(function() { return $(this).text() }).get();
-            return e;
-          });
-          return true;
-        }))
+        await Promise.all(
+          obj.season.map(async (e, i) => {
+            await scraperjs.StaticScraper.create(e.link).scrape(function ($) {
+              e.sinopsis = $(".desc .entry-content-single p")
+                .map(function () {
+                  return $(this).text();
+                })
+                .get()[0];
+              e.genre = $(".genre-info a")
+                .map(function () {
+                  return $(this).text();
+                })
+                .get();
+              return e;
+            });
+            return true;
+          })
+        );
 
         obj.latest = $(".post-show ul li")
           .map(function () {
@@ -54,7 +64,7 @@ class MainController {
                 .text()
                 .replace(" Released on: ", ""),
               link: $(this).find(".dtla .entry-title a").attr("href"),
-              image: $(this).find(".thumb a img").attr("src"),
+              image: $(this).find(".thumb a img").attr("src").split("?")[0],
             };
           })
           .get();
