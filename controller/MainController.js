@@ -27,7 +27,7 @@ class MainController {
                 .attr("href")
                 .replace("https://samehadaku.vip/anime/", "")
                 .replace("/", ""),
-              image: $(this).find("a .content-thumb img").attr("src"),
+              image: $(this).find("a .content-thumb img").attr("src").split('?')[0] ,
               rating: $(this).find("a .content-thumb .score").text().trim(),
             };
           })
