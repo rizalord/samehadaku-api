@@ -21,7 +21,7 @@ class AnimeController {
       // Image
       data.image = $(".thumb img")
         .map(function () {
-          return $(this).attr("src").split('?')[0];
+          return $(this).attr("src");
         })
         .get()[0];
       // Genres
@@ -312,7 +312,7 @@ class AnimeController {
             .map(async function () {
               let data = {
                 link: $(this).find("a").attr("href"),
-                image: $(this).find("a img").attr("src").split('?')[0],
+                image: $(this).find("a img").attr("src"),
                 title: $(this).find("a img").attr("title"),
               };
 
@@ -352,7 +352,7 @@ class AnimeController {
                     .text()
                     .replace(" Released on: ", ""),
                   link: $(this).find(".dtla .entry-title a").attr("href"),
-                  image: $(this).find(".thumb a img").attr("src").split("?")[0],
+                  image: $(this).find(".thumb a img").attr("src"),
                 };
 
                 await scraperjs.StaticScraper.create(
@@ -410,7 +410,7 @@ class AnimeController {
           .get()[0],
         image: $(".infoanime .thumb img")
           .map(function () {
-            return $(this).attr("src").split('?')[0];
+            return $(this).attr("src");
           })
           .get()[0],
         sinopsis: $(".infoanime .infox .desc div")
@@ -453,7 +453,7 @@ class AnimeController {
         .map(function () {
           let data = {
             link: $(this).find("a").attr("href"),
-            image: $(this).find("a img").attr("src").split('?')[0],
+            image: $(this).find("a img").attr("src"),
             title: $(this).find("a img").attr("title"),
           };
 
@@ -480,7 +480,7 @@ class AnimeController {
               .find(".animepost .stooltip .metadata span:last-of-type")
               .text()
               .replace(" Dilihat", ""),
-            image: $(this).find(".animepost .animposx img").attr("src").split('?')[0],
+            image: $(this).find(".animepost .animposx img").attr("src"),
             sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
             genres: $(this)
               .find(".animepost .stooltip .genres .mta a")
@@ -521,10 +521,7 @@ class AnimeController {
               .find(".animepost .stooltip .metadata span:last-of-type")
               .text()
               .replace(" Dilihat", ""),
-            image: $(this)
-              .find(".animepost .animposx img")
-              .attr("src")
-              .split("?")[0],
+            image: $(this).find(".animepost .animposx img").attr("src"),
             sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
             genres: $(this)
               .find(".animepost .stooltip .genres .mta a")
@@ -572,10 +569,7 @@ class AnimeController {
                 .find(".animepost .stooltip .metadata span:last-of-type")
                 .text()
                 .replace(" Dilihat", ""),
-              image: $(this)
-                .find(".animepost .animposx img")
-                .attr("src")
-                .split("?")[0],
+              image: $(this).find(".animepost .animposx img").attr("src"),
               sinopsis: $(this)
                 .find(".animepost .stooltip .ttls")
                 .text()
@@ -615,7 +609,7 @@ class AnimeController {
                   .find(".animepost .stooltip .metadata span:last-of-type")
                   .text()
                   .replace(" Dilihat", ""),
-                image: $(this).find(".animepost .animposx img").attr("src").split('?')[0],
+                image: $(this).find(".animepost .animposx img").attr("src"),
                 sinopsis: $(this)
                   .find(".animepost .stooltip .ttls")
                   .text()
@@ -677,7 +671,7 @@ class AnimeController {
                   title: $(this).find(".animposx a .data .title").text().trim(),
                   image: $(this)
                     .find(".animposx a .content-thumb img")
-                    .attr("src").split('?')[0],
+                    .attr("src"),
                   score: $(this)
                     .find(".animposx a .content-thumb .score")
                     .text()
@@ -721,7 +715,7 @@ class AnimeController {
               .find(".animepost .stooltip .metadata span:last-of-type")
               .text()
               .replace(" Dilihat", ""),
-            image: $(this).find(".animepost .animposx img").attr("src").split('?')[0],
+            image: $(this).find(".animepost .animposx img").attr("src"),
             sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
             genres: $(this)
               .find(".animepost .stooltip .genres .mta a")
@@ -765,7 +759,7 @@ class AnimeController {
               .find(".animepost .stooltip .metadata span:last-of-type")
               .text()
               .replace(" Dilihat", ""),
-            image: $(this).find(".animepost .animposx img").attr("src").split('?')[0],
+            image: $(this).find(".animepost .animposx img").attr("src"),
             sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
             genres: $(this)
               .find(".animepost .stooltip .genres .mta a")
@@ -809,7 +803,7 @@ class AnimeController {
               .find(".animepost .stooltip .metadata span:last-of-type")
               .text()
               .replace(" Dilihat", ""),
-            image: $(this).find(".animepost .animposx img").attr("src").split('?')[0],
+            image: $(this).find(".animepost .animposx img").attr("src"),
             sinopsis: $(this).find(".animepost .stooltip .ttls").text().trim(),
             genres: $(this)
               .find(".animepost .stooltip .genres .mta a")
