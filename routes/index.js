@@ -3,7 +3,6 @@ const AnimeController = require("./../controller/AnimeController");
 var express = require("express");
 var router = express.Router();
 
-/* GET home page. */
 router.get("/", MainController.home);
 router.get("/page/:page", MainController.home);
 router.get("/blog/", MainController.blog);
