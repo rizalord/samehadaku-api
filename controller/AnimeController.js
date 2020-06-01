@@ -453,17 +453,19 @@ class AnimeController {
         })
         .get();
 
-      data.downloadEps = await Promise.all(
-        data.downloadEps.map(async (val) => {
-          val.data = await Promise.all(
-            val.data.map(async function (realVal) {
-              realVal.link.zippyshare = await (await zsExtract.extract( realVal.link.zippyshare )).download
-              return realVal;
-            })
-          );
-          return val;
-        })
-      );
+      // DIRECT LINK
+
+      // data.downloadEps = await Promise.all(
+      //   data.downloadEps.map(async (val) => {
+      //     val.data = await Promise.all(
+      //       val.data.map(async function (realVal) {
+      //         realVal.link.zippyshare = await (await zsExtract.extract( realVal.link.zippyshare )).download
+      //         return realVal;
+      //       })
+      //     );
+      //     return val;
+      //   })
+      // );
 
       data.recommend = $(".animposx")
         .map(function () {
