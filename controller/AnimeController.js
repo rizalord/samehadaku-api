@@ -457,7 +457,7 @@ class AnimeController {
         data.downloadEps.map(async (val) => {
           val.data = await Promise.all(
             val.data.map(async function (realVal) {
-              realVal.link.zippyshare = await zsExtract.extract( realVal.link.zippyshare ).download
+              realVal.link.zippyshare = await (await zsExtract.extract( realVal.link.zippyshare )).download
               return realVal;
             })
           );
