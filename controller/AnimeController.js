@@ -1,4 +1,5 @@
 var scraperjs = require("scraperjs");
+var zsExtract = require("zs-extract");
 
 class AnimeController {
   anime(req, res) {
@@ -456,32 +457,10 @@ class AnimeController {
         data.downloadEps.map(async (val) => {
           val.data = await Promise.all(
             val.data.map(async function (realVal) {
-              realVal.link.zippyshare = await scraperjs.StaticScraper.create(
-                realVal.link.zippyshare
-              ).scrape(function ($) {
-                return (
-                  "https://www22.zippyshare.com" +
-                  eval(
-                    $("div script")
-                      .map(function () {
-                        return $(this).text();
-                      })
-                      .get()
-                      .filter((val) => val != "")[0]
-                      .split("\n")[1]
-                      .trim()
-                      .replace(`document.getElementById('dlbutton').href =`, "")
-                  )
-                );
-              });
+              realVal.link.zippyshare = await zsExtract.extract( realVal.link.zippyshare )
               return realVal;
             })
           );
-          // val.data.link.zippyshare = await scraperjs.StaticScraper.create(
-          //   val.data.link.zippyshare
-          // ).scrape(function ($) {
-          //   return val;
-          // });
           return val;
         })
       );

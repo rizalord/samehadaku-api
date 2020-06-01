@@ -12,6 +12,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "scraperjs": "^1.2.0"
+    "scraperjs": "^1.2.0",
+    "zs-extract": "^1.0.8"
   }
 }
