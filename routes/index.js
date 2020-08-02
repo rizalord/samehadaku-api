@@ -17,9 +17,9 @@ router.get("/date-release/", AnimeController.date);
 router.get("/list-anime/", AnimeController.listWithoutPage);
 router.get("/list-anime/:page", AnimeController.listWithPage);
 router.get("/genre/:genre", AnimeController.searchByGenre);
-router.get("/genre/:genre", AnimeController.searchByGenre);
 router.get("/tag/:tag", MainController.tag);
 router.get("/blog-category/:category", MainController.blogcategory);
 router.get("/blog-category/:category/:page", MainController.blogcategoryByPage);
+router.get("/daftar-genre",MainController.daftarGenre);
 
 module.exports = router;

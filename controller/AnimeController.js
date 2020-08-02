@@ -1,5 +1,4 @@
 var scraperjs = require("scraperjs");
-var zsExtract = require("zs-extract");
 
 class AnimeController {
   anime(req, res) {
