@@ -48,7 +48,26 @@ Then open [localhost:3000](http://localhost:3000/)
 | /genre/{id} | id   |  String | show anime by genre |
 
 
+## Sample response
 
+Api Endpoint : https://samehadaku-rest-api.herokuapp.com/
+```json
+{
+    title: "Re:Zero kara Hajimeru Isekai Seikatsu Season 2",
+    status: "Ongoing",
+    link: "https://samehadaku.vip/anime/rezero-kara-hajimeru-isekai-seikatsu-season-2/",
+    linkId: "rezero-kara-hajimeru-isekai-seikatsu-season-2",
+    image: "https://i0.wp.com/samehadaku.vip/wp-content/uploads/2020/07/108005.jpg?quality=90&resize=150,210",
+    rating: "8.79",
+    sinopsis: "Musim Kedua dari Serial Re:Zero kara Hajimeru Isekai Seikatsu.",
+    genre: [
+        "Drama",
+        "Fantasy",
+        "Psychological",
+        "Thriller"
+    ]
+},
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

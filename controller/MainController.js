@@ -1,6 +1,4 @@
 var scraperjs = require("scraperjs");
-const { text } = require("express");
-const { log } = require("debug");
 
 class MainController {
   constructor() {}
