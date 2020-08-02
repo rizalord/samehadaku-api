@@ -25,7 +25,7 @@ Start server with command:
 ```bash
 npx nodemon
 ```
-Then open [localhost://3000](localhost://3000)
+Then open [localhost:3000](http://localhost:3000/)
 
 ## Endpoint
 
@@ -45,7 +45,7 @@ Then open [localhost://3000](localhost://3000)
 | /blog-category/{category}/{page} | category, page     |  String, number | list items of category |
 | /tag/{tag} | tag   |  String | list items of tag |
 | /daftar-genre | -   |  String | genre list |
-| /genre/{lid} | id   |  String | show anime by genre |
+| /genre/{id} | id   |  String | show anime by genre |
 
 
 
