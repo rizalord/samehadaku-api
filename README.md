@@ -44,6 +44,8 @@ Then open [localhost://3000](localhost://3000)
 | /list-anime/{page} | page     |  number | list of all anime |
 | /blog-category/{category}/{page} | category, page     |  String, number | list items of category |
 | /tag/{tag} | tag   |  String | list items of tag |
+| /daftar-genre | -   |  String | genre list |
+| /genre/{lid} | id   |  String | show anime by genre |
 
 
 

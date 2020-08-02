@@ -1,4 +1,6 @@
 var scraperjs = require("scraperjs");
+const { text } = require("express");
+const { log } = require("debug");
 
 class MainController {
   constructor() {}
@@ -17,9 +19,9 @@ class MainController {
       async function ($) {
         var obj = {};
         obj.season = $(".animposx")
-          .map(function () {
+          .map(function () {  
             return {
-              title: $(this).find(".data .title").text(),
+              title: $(this).find(".data .title").text().replace(' ',''),
               status: $(this).find(".data .type").text(),
               link: $(this).find("a").attr("href"),
               linkId: $(this)
@@ -35,7 +37,7 @@ class MainController {
             };
           })
           .get()
-          .slice(0, 10);
+          .slice(0, 5);
 
         await Promise.all(
           obj.season.map(async (e, i) => {
@@ -46,8 +48,8 @@ class MainController {
                 })
                 .get()[0];
               e.genre = $(".genre-info a")
-                .map(function () {
-                  return $(this).text();
+                .map(function (e,j) {
+                  return $(this).text()
                 })
                 .get();
               return e;
@@ -273,6 +275,24 @@ class MainController {
       res.send(data);
     });
   }
+
+  daftarGenre(req, res){
+    scraperjs.StaticScraper.create('https://samehadaku.vip/').scrape(function ($){
+      let obj = {};
+      obj.daftar_genere = $('.genre > li').map(function(){
+        console.log($(this).text());
+        let span = $(this).find('span').text();
+        return {
+          nama_genre : $(this).text().replace(span,''),
+          link : $(this).find('a').attr('href'),
+          linkid : $(this).find('a').attr('href').replace('https://samehadaku.vip/genre/',''),
+          total:span
+        };
+      }).get();
+      res.send(obj);
+    });
+  }
+  
 }
 
 module.exports = new MainController();
