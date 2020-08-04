@@ -9,12 +9,14 @@
     "ecmaVersion": 11
   },
   "rules": {
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": "off",
     "semi": ["error", "never"],
     "no-nested-ternary": "off",
     "func-names": "off",
     "prefer-destructuring": "off",
     "no-shadow": "off",
-    "no-param-reassign":"off"
+    "no-param-reassign":"off",
+    "no-use-before-define":"off",
+    "no-restricted-globals":"off"
   }
 }

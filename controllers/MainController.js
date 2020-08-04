@@ -1,7 +1,7 @@
 const scraperjs = require('scraperjs')
 
 class MainController {
-  static home({ params: { page } }, { send }) {
+  home({ params: { page } }, req) {
     page = typeof page === 'undefined' ? '' : page === '1' ? '' : `page/${page.toString()}/`
     scraperjs.StaticScraper.create(`https://samehadaku.vip/${page}`).scrape(
       async ($) => {
@@ -65,12 +65,12 @@ class MainController {
           })
           .get()
 
-        send(obj)
+        req.send(obj)
       },
     )
   }
 
-  static blog({ params: { page } }, { send }) {
+  blog({ params: { page } }, req) {
     page = typeof page === 'undefined'
       ? ''
       : page === '1'
@@ -98,11 +98,11 @@ class MainController {
         })
         .get()
 
-      send(blog)
+      req.send(blog)
     })
   }
 
-  static readblog({ params: { id } }, { send }) {
+  readblog({ params: { id } }, req) {
     const page = `https://samehadaku.vip/blog/${id}`
 
     scraperjs.StaticScraper.create(page).scrape(($) => {
@@ -151,11 +151,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static tag({ params: { tag } }, { send }) {
+  tag({ params: { tag } }, req) {
     const page = `https://samehadaku.vip/tag/${tag}`
 
     scraperjs.StaticScraper.create(page).scrape(($) => {
@@ -187,11 +187,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static blogcategory({ params: { category } }, { send }) {
+  blogcategory({ params: { category } }, req) {
     const page = `https://samehadaku.vip/blog-category/${category}`
 
     scraperjs.StaticScraper.create(page).scrape(($) => {
@@ -217,11 +217,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static blogCategoryByPage({ params: { category, page } }, { send }) {
+  blogCategoryByPage({ params: { category, page } }, req) {
     const pager = `https://samehadaku.vip/blog-category/${category}/page/${page}`
 
     scraperjs.StaticScraper.create(pager).scrape(($) => {
@@ -247,11 +247,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static daftarGenre(_, { send }) {
+  daftarGenre(_, req) {
     scraperjs.StaticScraper.create('https://samehadaku.vip/').scrape(($) => {
       const obj = {}
       obj.daftar_genere = $('.genre > li').map(function () {
@@ -263,11 +263,11 @@ class MainController {
           total: span,
         }
       }).get()
-      send(obj)
+      req.send(obj)
     })
   }
 
-  static anime({ params: { id } }, { send }) {
+  anime({ params: { id } }, req) {
     const page = `https://samehadaku.vip/anime/${id}/`
     scraperjs.StaticScraper.create(page).scrape(async ($) => {
       const data = {}
@@ -625,11 +625,11 @@ class MainController {
         },
       )
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static async readanime({ params: { link } }, { send }) {
+  async readanime({ params: { link } }, req) {
     const page = `https://samehadaku.vip/${link}/`
 
     scraperjs.StaticScraper.create(page).scrape(async ($) => {
@@ -716,11 +716,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static search({ params: { title } }, { send }) {
+  search({ params: { title } }, req) {
     const page = `https://samehadaku.vip/?s=${title}`
 
     scraperjs.StaticScraper.create(page).scrape(($) => {
@@ -759,11 +759,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static searchByPage({ params: { title, page } }, { send }) {
+  searchByPage({ params: { title, page } }, req) {
     const pager = `https://samehadaku.vip/page/${page}/?s=${title}`
 
     scraperjs.StaticScraper.create(pager).scrape(($) => {
@@ -802,11 +802,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static season(_, { send }) {
+  season(_, req) {
     const page = 'https://samehadaku.vip/season/spring-2020/'
 
     scraperjs.StaticScraper.create(page)
@@ -901,12 +901,12 @@ class MainController {
 
           data.results = [...data.results, ...results]
 
-          send(data)
+          req.send(data)
         })
       })
   }
 
-  static date(_, { send }) {
+  date(_, req) {
     const page = 'https://samehadaku.vip/jadwal-rilis/'
 
     scraperjs.StaticScraper.create(page).scrape(($) => {
@@ -954,11 +954,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static listWithoutPage(_, { send }) {
+  listWithoutPage(_, req) {
     const page = 'https://samehadaku.vip/daftar-anime/'
 
     scraperjs.StaticScraper.create(page).scrape(($) => {
@@ -1000,11 +1000,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static listWithPage({ params: { page } }, { send }) {
+  listWithPage({ params: { page } }, req) {
     const inPage = `https://samehadaku.vip/daftar-anime/page/${page}/`
 
     scraperjs.StaticScraper.create(inPage).scrape(($) => {
@@ -1046,11 +1046,11 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 
-  static searchByGenre({ params: { genre } }, { send }) {
+  searchByGenre({ params: { genre } }, req) {
     const page = `https://samehadaku.vip/genre/${genre}`
 
     scraperjs.StaticScraper.create(page).scrape(($) => {
@@ -1092,9 +1092,9 @@ class MainController {
         })
         .get()
 
-      send(data)
+      req.send(data)
     })
   }
 }
 
-module.exports = MainController
+module.exports = new MainController()
