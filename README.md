@@ -14,16 +14,16 @@ Use the package manager [npm](https://npmjs.com/) to install SRA's package.
 ```bash
 npm install
 ```
-* Install nodemon package globaly in your computer
-```bash
-npm install -g nodemon
-```
 
 ## Usage
 
 Start server with command:
 ```bash
-npx nodemon
+npm start
+```
+or
+```bash
+npm run nodemon
 ```
 Then open [localhost:3000](http://localhost:3000/)
 

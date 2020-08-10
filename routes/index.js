@@ -1,25 +1,25 @@
-const MainController = require("./../controller/MainController");
-const AnimeController = require("./../controller/AnimeController");
-var express = require("express");
-var router = express.Router();
+const express = require('express')
+const MainController = require('../controllers/MainController')
 
-router.get("/", MainController.home);
-router.get("/page/:page", MainController.home);
-router.get("/blog/", MainController.blog);
-router.get("/blog/read/:id", MainController.readblog);
-router.get("/blog/:page", MainController.blog);
-router.get("/anime/:id", AnimeController.anime);
-router.get("/anime/eps/:link", AnimeController.readanime);
-router.get("/search/:title", AnimeController.search);
-router.get("/search/:title/:page", AnimeController.searchByPage);
-router.get("/season/", AnimeController.season);
-router.get("/date-release/", AnimeController.date);
-router.get("/list-anime/", AnimeController.listWithoutPage);
-router.get("/list-anime/:page", AnimeController.listWithPage);
-router.get("/genre/:genre", AnimeController.searchByGenre);
-router.get("/tag/:tag", MainController.tag);
-router.get("/blog-category/:category", MainController.blogcategory);
-router.get("/blog-category/:category/:page", MainController.blogcategoryByPage);
-router.get("/daftar-genre",MainController.daftarGenre);
+const router = express.Router()
 
-module.exports = router;
+router.get('/', MainController.home)
+router.get('/page/:page', MainController.home)
+router.get('/blog/', MainController.blog)
+router.get('/blog/read/:id', MainController.readblog)
+router.get('/blog/:page', MainController.blog)
+router.get('/anime/:id', MainController.anime)
+router.get('/anime/eps/:link', MainController.readanime)
+router.get('/search/:title', MainController.search)
+router.get('/search/:title/:page', MainController.searchByPage)
+router.get('/season/', MainController.season)
+router.get('/date-release/', MainController.date)
+router.get('/list-anime/', MainController.listWithoutPage)
+router.get('/list-anime/:page', MainController.listWithPage)
+router.get('/genre/:genre', MainController.searchByGenre)
+router.get('/tag/:tag', MainController.tag)
+router.get('/blog-category/:category', MainController.blogcategory)
+router.get('/blog-category/:category/:page', MainController.blogCategoryByPage)
+router.get('/daftar-genre', MainController.daftarGenre)
+
+module.exports = router

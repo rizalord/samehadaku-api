@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node bin/www",
+    "nodemon": "nodemon",
+    "lint": "eslint"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,7 +15,12 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "scraperjs": "^1.2.0",
-    "zs-extract": "^1.0.8"
+    "scraperjs": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4"
   }
 }
