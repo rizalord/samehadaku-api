@@ -1,9 +1,9 @@
 # Samehadaku-Rest-Api
 
-SRA is a rest-api which is scraping to the [samehadaku](https://samehadaku.vip) website and made up using Express.
+SRA is a rest-api which is scraping to the [samehadaku](https://194.163.183.129/) website and made up using Express.
 
 ## Demo
-[Click to show preview](https://samehadaku-rest-api.herokuapp.com/)
+[Click to show preview](https://mdvk-samehadaku-api.herokuapp.com/)
 
 ## Installation
 
@@ -50,8 +50,8 @@ Then open [localhost:3000](http://localhost:3000/)
 
 ## Sample response
 
-Api Endpoint : https://samehadaku-rest-api.herokuapp.com/
-```json
+Api Endpoint : https://mdvk-samehadaku-api.herokuapp.com/
+```
 {
     title: "Re:Zero kara Hajimeru Isekai Seikatsu Season 2",
     status: "Ongoing",
