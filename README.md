@@ -55,7 +55,7 @@ Api Endpoint : https://samehadaku-rest-api.herokuapp.com/
 {
     title: "Re:Zero kara Hajimeru Isekai Seikatsu Season 2",
     status: "Ongoing",
-    link: "https://samehadaku.vip/anime/rezero-kara-hajimeru-isekai-seikatsu-season-2/",
+    link: "https://194.163.183.129/anime/rezero-kara-hajimeru-isekai-seikatsu-season-2/",
     linkId: "rezero-kara-hajimeru-isekai-seikatsu-season-2",
     image: "https://i0.wp.com/samehadaku.vip/wp-content/uploads/2020/07/108005.jpg?quality=90&resize=150,210",
     rating: "8.79",
